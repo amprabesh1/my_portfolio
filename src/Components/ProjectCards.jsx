@@ -142,7 +142,7 @@ const ProjectCard = ({
               </div>
 
               <div className="mt-3">
-                  <h3 className="text-white font-bold text-2xl">{name}</h3>
+                  <h3 className="font-bold text-2xl text-[#0B1F44]">{name}</h3>
                   <p className="mt-2 text-secondary text-[14px] leading-snug">
                       {description}
                   </p>
