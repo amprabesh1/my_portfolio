@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       dropShadow: {
-        green: '0 0 10rem #29c26f',
+        // 🔵 Clean electric blue glow (replaces green)
+        blue: '0 0 10rem #2563EB',
       },
     },
 
@@ -16,16 +17,16 @@ export default {
       black: '#000000',
       white: '#FFFFFF',
 
-      // 🔵 PRIMARY TECH BLUE
+      // 🔵 PRIMARY TECH BLUE THEME
       primary: {
         400: '#2563EB',   // buttons, links
         500: '#1D4ED8',   // nav, headers
         600: '#1E3A8A',   // strong accents
       },
 
-      // 🔘 CLEAN GRAYSCALE (NO BLUR)
+      // 🔘 SHARP GRAYSCALE (NO BLUR)
       grayscale: {
-        25:  '#F8FAFC',  // background
+        25:  '#F8FAFC',  // main background
         100: '#E2E8F0',  // borders
         200: '#CBD5E1',  // muted text
         500: '#475569',  // secondary text
@@ -33,13 +34,13 @@ export default {
         950: '#020617',  // main text
       },
 
-      // ✅ OPTIONAL ACCENT (for highlights)
+      // ✅ OPTIONAL ACCENT (subtle highlights)
       accent: {
-        400: '#38BDF8',  // cyan highlight
+        400: '#38BDF8',
         500: '#0EA5E9',
       },
 
-      // ✅ SUCCESS / STATUS COLORS
+      // ✅ STATUS COLORS (kept neutral & clean)
       success: '#22C55E',
       warning: '#F59E0B',
       danger:  '#EF4444',
