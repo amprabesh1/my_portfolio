@@ -12,7 +12,7 @@ const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
 
-  // ✅ Scroll-based active detection (no UI changes)
+  // ✅ FIXED SCROLL SYNC (NO VISUAL CHANGES)
   useEffect(() => {
     const sections = navLinks
       .map((link) => document.getElementById(link.id))
@@ -37,7 +37,7 @@ const Navbar = () => {
         }
       },
       {
-        threshold: [0.25, 0.5, 0.75],
+        threshold: [0.2, 0.4, 0.6],
       }
     );
 
@@ -57,7 +57,7 @@ const Navbar = () => {
     >
       <div className="w-full flex justify-between items-center max-w-7x1 mx-auto">
 
-        {/* ✅ Logo (unchanged) */}
+        {/* ✅ Logo (UNCHANGED) */}
         <Link
           to="/"
           className="flex items-center gap-2"
@@ -69,7 +69,7 @@ const Navbar = () => {
           <img src={bl33hIcon} alt="logo" className="w-18 h-9 object-contain" />
         </Link>
 
-        {/* ✅ Desktop Menu (unchanged visually) */}
+        {/* ✅ Desktop Menu (UNCHANGED UI) */}
         <ul className="list-none hidden sm:flex flex-row gap-6">
           {navLinks.map((link) => (
             <li key={link.id}>
@@ -92,7 +92,7 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* ✅ Mobile Menu (unchanged visually) */}
+        {/* ✅ Mobile Menu (UNCHANGED UI) */}
         <div className="sm:hidden flex flex-1 justify-end items-center">
           <img
             className="w-[28px] h-[28px] object-contain cursor-pointer z-20"
