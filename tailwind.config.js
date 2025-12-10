@@ -19,9 +19,9 @@ export default {
 
       // 🔵 PRIMARY TECH BLUE THEME
       primary: {
-        400: '#38BDF8',   // buttons, links
-        500: '#0284C7',   // nav, headers
-        600: '#0C4A6E',   // strong accents
+        400: '#1E3A8A',   // buttons, links
+        500: '#1E293B',   // nav, headers
+        600: '#020617',   // strong accents
       },
 
       // 🔘 SHARP GRAYSCALE (NO BLUR)
