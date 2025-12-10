@@ -2,7 +2,7 @@
    Copyright (C), 2023-2024, Sara Echeverria (bl33h)
 */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { styles } from "../../styles.js";
 import { navLinks } from "../../Constants/constants";
@@ -12,6 +12,34 @@ const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
 
+  // ✅ ✅ SCROLL-BASED ACTIVE BUTTON FIX (NO UI CHANGES)
+  useEffect(() => {
+    const sections = navLinks.map((link) =>
+      document.getElementById(link.id)
+    );
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id); // ✅ USE ID, NOT TITLE
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
+
+    sections.forEach((section) => {
+      if (section) observer.observe(section);
+    });
+
+    return () => {
+      sections.forEach((section) => {
+        if (section) observer.unobserve(section);
+      });
+    };
+  }, []);
+
   return (
     <nav
       className={`
@@ -19,10 +47,10 @@ const Navbar = () => {
         fixed top-0 z-20 bg-transparent
       `}
     >
-      {/* RESTORED ORIGINAL ALIGNMENT */}
+      {/* ✅ ORIGINAL ALIGNMENT UNCHANGED */}
       <div className="w-full flex justify-between items-center max-w-7x1 mx-auto">
         
-        {/* Logo */}
+        {/* ✅ Logo UNCHANGED */}
         <Link
           to="/"
           className="flex items-center gap-2"
@@ -34,18 +62,18 @@ const Navbar = () => {
           <img src={bl33hIcon} alt="logo" className="w-18 h-9 object-contain" />
         </Link>
 
-        {/* Desktop Menu */}
+        {/* ✅ Desktop Menu UNCHANGED VISUALLY */}
         <ul className="list-none hidden sm:flex flex-row gap-6">
           {navLinks.map((link) => (
             <li key={link.id}>
               <a
                 href={`#${link.id}`}
-                onClick={() => setActive(link.title)}
+                onClick={() => setActive(link.id)}
                 className={`
                   px-6 py-2 rounded-xl text-[18px] font-semibold transition-all duration-300
                   border-2 border-[#1E3A8A]
                   ${
-                    active === link.title
+                    active === link.id
                       ? "bg-[#1E3A8A] text-white"
                       : "text-[#1E3A8A] hover:bg-[#1E3A8A] hover:text-white"
                   }
@@ -57,7 +85,7 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Mobile Menu */}
+        {/* ✅ Mobile Menu UNCHANGED */}
         <div className="sm:hidden flex flex-1 justify-end items-center">
           <img
             className="w-[28px] h-[28px] object-contain cursor-pointer z-20"
@@ -77,14 +105,14 @@ const Navbar = () => {
                   <a
                     href={`#${link.id}`}
                     onClick={() => {
-                      setActive(link.title);
+                      setActive(link.id);
                       setToggle(!toggle);
                     }}
                     className={`
                       block w-full text-center px-4 py-2 rounded-lg text-[16px] font-medium transition-all
                       border border-[#1E3A8A]
                       ${
-                        active === link.title
+                        active === link.id
                           ? "bg-[#1E3A8A] text-white"
                           : "text-[#1E3A8A] hover:bg-[#1E3A8A] hover:text-white"
                       }
