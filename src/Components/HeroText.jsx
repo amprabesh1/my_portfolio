@@ -10,13 +10,16 @@
 import { m, LazyMotion, domAnimation } from "framer-motion";
 
 const HeroText = () => {
-  const name = "PRABESH ?";
+  const name = "PRABESH";
 
   return (
     <div
       className="noselect w-fit h-fit text-primary-200 absolute z-10 flex flex-col justify-center items-center rounded-[50%]"
       id="repulse-div"
     >
+      {/* ✅ AMBER BOLD GLOW BACKGROUND */}
+      <div className="absolute w-[500px] h-[300px] bg-amber-400/30 blur-[140px] rounded-full -z-10"></div>
+
       <LazyMotion features={domAnimation} strict>
         <m.h1
           initial={{ opacity: 0 }}
@@ -32,19 +35,19 @@ const HeroText = () => {
           >
             WHO'S{" "}
           </m.span>
+
           <m.div
             initial={{ x: 100 }}
             whileInView={{ x: 0 }}
             transition={{ duration: 0.6, type: "spring" }}
           >
             {name.split("").map((char, index) => {
-              if (char === " ") {
-                return " ";
-              }
+              if (char === " ") return " ";
+
               return (
                 <span
                   key={index}
-                  className="text-primary-400 bounce"
+                  className="text-amber-500 bounce"
                   style={{ fontSize: "1.2em" }}
                 >
                   {char}
