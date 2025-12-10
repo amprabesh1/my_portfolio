@@ -1,7 +1,5 @@
 /*
    Copyright (C), 2023-2024, Sara Echeverria (bl33h)
-   Author: Sara Echeverria
-   FileName: NavBar.jsx
 */
 
 import React, { useState } from "react";
@@ -16,11 +14,15 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 bg-transparent`}
+      className={`
+        ${styles.paddingX} w-full flex items-center py-5
+        fixed top-0 z-20 bg-transparent
+      `}
     >
-      <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
+      {/* RESTORED ORIGINAL ALIGNMENT */}
+      <div className="w-full flex justify-between items-center max-w-7x1 mx-auto">
         
-        {/* LOGO */}
+        {/* Logo */}
         <Link
           to="/"
           className="flex items-center gap-2"
@@ -32,7 +34,7 @@ const Navbar = () => {
           <img src={bl33hIcon} alt="logo" className="w-18 h-9 object-contain" />
         </Link>
 
-        {/* DESKTOP MENU */}
+        {/* Desktop Menu */}
         <ul className="list-none hidden sm:flex flex-row gap-6">
           {navLinks.map((link) => (
             <li key={link.id}>
@@ -55,7 +57,7 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* MOBILE MENU */}
+        {/* Mobile Menu */}
         <div className="sm:hidden flex flex-1 justify-end items-center">
           <img
             className="w-[28px] h-[28px] object-contain cursor-pointer z-20"
@@ -67,7 +69,7 @@ const Navbar = () => {
           <div
             className={`${
               !toggle ? "hidden" : "flex"
-            } pt-20 p-6 absolute top-2 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl bg-white shadow-xl`}
+            } pt-20 p-6 bg-white absolute top-2 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl shadow-xl`}
           >
             <ul className="list-none flex justify-end items-start flex-col gap-4 w-full">
               {navLinks.map((link) => (
