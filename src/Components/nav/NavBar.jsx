@@ -12,31 +12,40 @@ const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
 
-  // ✅ ✅ SCROLL-BASED ACTIVE BUTTON FIX (NO UI CHANGES)
+  // ✅ Scroll-based active button logic (fixed to behave better for Projects too)
   useEffect(() => {
-    const sections = navLinks.map((link) =>
-      document.getElementById(link.id)
-    );
+    const sections = navLinks
+      .map((link) => document.getElementById(link.id))
+      .filter(Boolean); // only real elements
+
+    if (sections.length === 0) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
+        // Pick the section with the highest visibility in viewport
+        let mostVisible = null;
+        let maxRatio = 0;
+
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActive(entry.target.id); // ✅ USE ID, NOT TITLE
+          if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
+            maxRatio = entry.intersectionRatio;
+            mostVisible = entry.target;
           }
         });
+
+        if (mostVisible && mostVisible.id) {
+          setActive(mostVisible.id);
+        }
       },
-      { threshold: 0.6 }
+      {
+        threshold: [0.25, 0.5, 0.75], // more stable detection
+      }
     );
 
-    sections.forEach((section) => {
-      if (section) observer.observe(section);
-    });
+    sections.forEach((section) => observer.observe(section));
 
     return () => {
-      sections.forEach((section) => {
-        if (section) observer.unobserve(section);
-      });
+      sections.forEach((section) => observer.unobserve(section));
     };
   }, []);
 
@@ -47,10 +56,10 @@ const Navbar = () => {
         fixed top-0 z-20 bg-transparent
       `}
     >
-      {/* ✅ ORIGINAL ALIGNMENT UNCHANGED */}
+      {/* ORIGINAL ALIGNMENT */}
       <div className="w-full flex justify-between items-center max-w-7x1 mx-auto">
         
-        {/* ✅ Logo UNCHANGED */}
+        {/* Logo (unchanged) */}
         <Link
           to="/"
           className="flex items-center gap-2"
@@ -62,7 +71,7 @@ const Navbar = () => {
           <img src={bl33hIcon} alt="logo" className="w-18 h-9 object-contain" />
         </Link>
 
-        {/* ✅ Desktop Menu UNCHANGED VISUALLY */}
+        {/* Desktop Menu (unchanged visually) */}
         <ul className="list-none hidden sm:flex flex-row gap-6">
           {navLinks.map((link) => (
             <li key={link.id}>
@@ -85,7 +94,7 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* ✅ Mobile Menu UNCHANGED */}
+        {/* Mobile Menu (unchanged visually) */}
         <div className="sm:hidden flex flex-1 justify-end items-center">
           <img
             className="w-[28px] h-[28px] object-contain cursor-pointer z-20"
