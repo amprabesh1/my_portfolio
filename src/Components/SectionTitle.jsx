@@ -20,8 +20,9 @@ const SectionTitle = (props) => {
         transition={{ duration: 0.6, type: "spring" }}
         className="p-6 noselect"
       >
+        {/* Subtitle */}
         <span
-          className="opacity-50"
+          className="opacity-60 text-[#475569]"
           style={{
             textTransform: "uppercase",
             fontFamily: "Poppins, sans-serif",
@@ -30,15 +31,19 @@ const SectionTitle = (props) => {
         >
           {subtitle}
         </span>
+
+        {/* Main Title - DARK NAVY */}
         <h2
           className="tracking-wider text-7xl sm:text-8xl md:text-9xl text-[#1E3A8A]"
-          style={{ fontFamily: "Morganite Black"}}
+          style={{ fontFamily: "Morganite Black" }}
         >
           {title.split("").map((char, index) => {
-            if(char === " ") {
-              return " ";
-            }
-            return <span key={index} className="bounce">{char}</span>
+            if (char === " ") return " ";
+            return (
+              <span key={index} className="bounce">
+                {char}
+              </span>
+            );
           })}
         </h2>
       </m.div>
