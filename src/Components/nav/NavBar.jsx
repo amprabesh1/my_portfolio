@@ -12,17 +12,16 @@ const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
 
-  // ✅ Scroll-based active button logic (fixed to behave better for Projects too)
+  // ✅ Scroll-based active detection (no UI changes)
   useEffect(() => {
     const sections = navLinks
       .map((link) => document.getElementById(link.id))
-      .filter(Boolean); // only real elements
+      .filter(Boolean);
 
-    if (sections.length === 0) return;
+    if (!sections.length) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
-        // Pick the section with the highest visibility in viewport
         let mostVisible = null;
         let maxRatio = 0;
 
@@ -33,12 +32,12 @@ const Navbar = () => {
           }
         });
 
-        if (mostVisible && mostVisible.id) {
+        if (mostVisible?.id) {
           setActive(mostVisible.id);
         }
       },
       {
-        threshold: [0.25, 0.5, 0.75], // more stable detection
+        threshold: [0.25, 0.5, 0.75],
       }
     );
 
@@ -56,10 +55,9 @@ const Navbar = () => {
         fixed top-0 z-20 bg-transparent
       `}
     >
-      {/* ORIGINAL ALIGNMENT */}
       <div className="w-full flex justify-between items-center max-w-7x1 mx-auto">
-        
-        {/* Logo (unchanged) */}
+
+        {/* ✅ Logo (unchanged) */}
         <Link
           to="/"
           className="flex items-center gap-2"
@@ -71,7 +69,7 @@ const Navbar = () => {
           <img src={bl33hIcon} alt="logo" className="w-18 h-9 object-contain" />
         </Link>
 
-        {/* Desktop Menu (unchanged visually) */}
+        {/* ✅ Desktop Menu (unchanged visually) */}
         <ul className="list-none hidden sm:flex flex-row gap-6">
           {navLinks.map((link) => (
             <li key={link.id}>
@@ -94,7 +92,7 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Mobile Menu (unchanged visually) */}
+        {/* ✅ Mobile Menu (unchanged visually) */}
         <div className="sm:hidden flex flex-1 justify-end items-center">
           <img
             className="w-[28px] h-[28px] object-contain cursor-pointer z-20"
