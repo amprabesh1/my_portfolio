@@ -12,10 +12,10 @@ export default {
     },
     colors: {
       primary: {
-        200: '#cffafe', // almost white
-        400: '#22d3ee', // dark pink
-        500: '#06b6d4', // light pink 
-        600: '#0e7490', // wine
+        400: '#0F766E', // almost white
+        500: '#115E59', // dark pink
+        600: '#134E4A', // light pink 
+
       },
       grayscale: {
         25: '#020617', // beige
