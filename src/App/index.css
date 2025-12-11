@@ -52,13 +52,13 @@ body {
 #repulse-div {
   -webkit-appearance: none;
   appearance: none;
-  -webkit-filter: drop-shadow(0 0 5rem #1E3A8A);
-  filter: drop-shadow(0 0 5rem #1E3A8A);
+  -webkit-filter: drop-shadow(0 0 5rem #84BF88);
+  filter: drop-shadow(0 0 5rem #84BF88);
 }
 
 #repulse-div > h1 {
-  -webkit-filter: drop-shadow(0 0 5rem #1E3A8A);
-  filter: drop-shadow(0 0 5rem #1E3A8A);
+  -webkit-filter: drop-shadow(0 0 5rem #84BF88);
+  filter: drop-shadow(0 0 5rem #84BF88);
 }
 
 #journey-scroll::-webkit-scrollbar {
@@ -156,8 +156,8 @@ polyline {
   .drop-shadow-div {
     -webkit-appearance: none;
     appearance: none;
-    -webkit-filter: drop-shadow(0 0 1.5rem #1E3A8A);
-    filter: drop-shadow(0 0 1.5rem #1E3A8A);
+    -webkit-filter: drop-shadow(0 0 1.5rem #84BF88);
+    filter: drop-shadow(0 0 1.5rem #84BF88);
   }
 }
 
