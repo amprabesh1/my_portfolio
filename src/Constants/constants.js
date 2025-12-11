@@ -82,9 +82,9 @@ const introduction = {
   text: [
     "Hello there, I'm so happy you are here! (:",
 
-		"My name is Sara, I'm 22 and a senior computer science student based in Guatemala. I have a strong passion for the technologies related to QA and AI.",
-    "Outside of my regular activities, I'm a painting artist, football enthusiast, chess player, and a dog lover.",
-    "I'm continuously thrilled to partner with individuals and teams who wholeheartedly embrace my fervor for crafting extraordinary experiences. Your visit to my portfolio is deeply appreciated!"
+		"My name is Prabesh, I'm 23 and a senior computer science student based in the United States. I have a strong passion for data engineering and enjoy working with technologies that enable efficient data pipelines, automation, and real-time decision-making.",
+    "Outside of my regular activities, I am a passionate traveler, a football enthusiast, and a proud dog lover who enjoys exploring the world and connecting with people.",
+    "I’m always excited to collaborate with teams who value innovation, data-driven thinking, and building solutions that truly make an impact. Thank you for visiting my portfolio."
   ],
 };
 
