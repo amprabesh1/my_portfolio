@@ -80,7 +80,7 @@ const icons = {
 
 const introduction = {
   text: [
-    "Hello there, I'm so happy you are here! (:",
+    "Great to have you here! Let’s dive in (:",
 
 		"My name is Prabesh, I'm 23 and a senior computer science student based in the United States. I have a strong passion for data engineering and enjoy working with technologies that enable efficient data pipelines, automation, and real-time decision-making.",
     "Outside of my regular activities, I am a passionate traveler, a football enthusiast, and a proud dog lover who enjoys exploring the world and connecting with people.",
