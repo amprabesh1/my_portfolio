@@ -19,10 +19,10 @@ const ContactForm = () => {
     e.preventDefault();
 
     emailjs.sendForm(
-      "whoisbl33h",
-      "template1",
+      "service_87psv1p",
+      "template_0zjepq8",
       e.target,
-      "JjC_Nnt4rUsjIsRtz"
+      "yAdUaott7z6uD4dBG"
     )
       .then(
         (result) => {
